@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+        padding: 60px;
+      }
+      #container>div{
+          
+     box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 8px;
+        
+        
+         
+      }
+      .p2{
+          margin-top: 20px;
+          text-decoration: line-through;
+          font-weight: 400;
+          color: gray;
+      }
+      .p1{
+         margin-left: 25px;
+         color:grey ;
+         font-weight: 500;
+      }
+     .box1{
+   
+         display: flex;
+         justify-content: space-between;
+         width: 60%;
+         margin-left: 25px;
+      
+      
+     }
+     
+      img{
+          width: 100%;
+        
+
+      } 
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+</html>
+
+<script>
+ var data = [
+    {
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$25.00",
+        strikedOffPrice:"$95.00"
+    },{
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi2.jpg.pagespeed.ic.uBrpABaJqp.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    },{
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi3.jpg.pagespeed.ic.iO_cFEPy2K.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    },
+    {
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi4.jpg.pagespeed.ic.kmiQW8I5wx.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    }
+]
+  
+  
+  
+
+  //   img/role/name/companylogo
+
+  data.map(function (elem) {
+    var box = document.createElement("div");
+
+    var img = document.createElement("img");
+    img.src = elem.imgUrl;
+    var invertorName=document.createElement("p")
+    invertorName.textContent = elem.name;
+    invertorName.setAttribute("class","p1")
+   
+
+    var companyName = document.createElement("h3");
+    companyName.textContent = elem.price;
+
+    var strikedOffPrice1 = document.createElement("p");
+    strikedOffPrice1.textContent = elem.strikedOffPrice;
+    strikedOffPrice1.setAttribute("class","p2")
+
+    var box1 = document.createElement("div");
+    box1.append(companyName, strikedOffPrice1);
+    box1.setAttribute("class","box1")
+
+    box.append(img,invertorName,box1);
+
+    document.querySelector("#container").append(box);
+  });
+</script>
